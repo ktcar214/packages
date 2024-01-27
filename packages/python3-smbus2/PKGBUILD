@@ -1,0 +1,17 @@
+pkgname=python3-smbus2
+pkgver=0.4.3
+pkgrel=1
+pkgdesc="A drop-in replacement for smbus-cffi/smbus-python3 in pure python3"
+url="https://github.com/kplindegaard/smbus2"
+license=(MIT)
+arch=(any)
+depends=(python3.11)
+makedepends=(python3-distribute)
+source=("https://github.com/kplindegaard/smbus2/archive/${pkgver}.tar.gz")
+md5sums=(SKIP)
+
+
+package() {
+	cd "$srcdir/smbus2-$pkgver"
+	python3 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+}

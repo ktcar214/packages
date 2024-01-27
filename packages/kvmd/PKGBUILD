@@ -3,32 +3,7 @@
 
 
 _variants=(
-	v0-hdmi:zero2w
-	v0-hdmi:rpi2
-	v0-hdmi:rpi3
-
-	v0-hdmiusb:zero2w
-	v0-hdmiusb:rpi2
-	v0-hdmiusb:rpi3
-
-	v1-hdmi:zero2w
-	v1-hdmi:rpi2
-	v1-hdmi:rpi3
-
-	v1-hdmiusb:zero2w
-	v1-hdmiusb:rpi2
-	v1-hdmiusb:rpi3
-
-	v2-hdmi:zero2w
-	v2-hdmi:rpi3
-	v2-hdmi:rpi4
-
-	v2-hdmiusb:rpi4
-
-	v3-hdmi:rpi4
-
-	v4mini-hdmi:rpi4
-	v4plus-hdmi:rpi4
+	v2-hdmi:rpi5
 )
 
 
@@ -42,44 +17,43 @@ pkgbase=kvmd
 pkgver=3.296
 pkgrel=1
 pkgdesc="The main PiKVM daemon"
-url="https://github.com/pikvm/kvmd"
+url="https://github.com/ktcar214/kvmd"
 license=(GPL)
 arch=(any)
 depends=(
-	"python>=3.11"
-	"python<3.12"
-	python-yaml
-	python-aiohttp
-	python-aiofiles
-	python-async-lru
-	python-passlib
-	python-pyotp
-	python-qrcode
-	python-periphery
-	python-pyserial
-	python-pyserial-asyncio
-	python-spidev
-	python-setproctitle
-	python-psutil
-	python-netifaces
-	python-systemd
-	python-dbus
-	python-dbus-next
-	python-pygments
-	python-pyghmi
-	python-pam
-	python-pillow
-	python-xlib
+	python3.11
+	python3-yaml
+	python3-aiohttp
+	python3-aiofiles
+	python3-async-lru
+	python3-passlib
+	python3-pyotp
+	python3-qrcode
+	python3-periphery
+	python3-pyserial
+	python3-pyserial-asyncio
+	python3-spidev
+	python3-setproctitle
+	python3-psutil
+	python3-netifaces
+	python3-systemd
+	python3-dbus
+	python3-dbus-next
+	python3-pygments
+	python3-pyghmi
+	python3-pam
+	python3-pillow
+	python3-xlib
 	libxkbcommon
-	python-hidapi
-	python-six
-	python-pyrad
-	python-ldap
-	python-zstandard
+	python3-hidapi
+	python3-six
+	python3-pyrad
+	python3-ldap
+	python3-zstandard
 	"libgpiod>=2.1"
 	freetype2
 	"v4l-utils>=1.22.1-1"
-	"nginx-mainline>=1.25.1"
+	"nginx>=1.25.1"
 	openssl
 	sudo
 	iptables
@@ -87,7 +61,7 @@ depends=(
 	dnsmasq
 	ipmitool
 	"janus-gateway-pikvm>=0.11.2-7"
-	certbot
+	python-certbot
 	platform-io-access
 	raspberrypi-utils
 	"ustreamer>=5.32"
@@ -97,10 +71,11 @@ depends=(
 
 	# https://bugzilla.redhat.com/show_bug.cgi?id=2035802
 	# https://archlinuxarm.org/forum/viewtopic.php?f=15&t=15725&start=40
-	"zstd>=1.5.1-2.1"
+	"zstd>=1.5.1"
+	"libzstd-dev>=1.5.1"
 
 	# Possible hotfix for the new os update
-	openssl-1.1
+	openssl
 
 	# Bootconfig
 	dos2unix
@@ -108,7 +83,7 @@ depends=(
 	e2fsprogs
 	openssh
 	wpa_supplicant
-	run-parts
+	debianutils
 
 	# fsck for /boot
 	dosfstools
@@ -120,14 +95,14 @@ optdepends=(
 	tesseract
 )
 conflicts=(
-	python-pikvm
-	python-aiohttp-pikvm
+	python3-pikvm
+	python3-aiohttp-pikvm
 	platformio
 	avrdude-pikvm
 )
 makedepends=(
-	python-setuptools
-	python-pip
+	python3-setuptools
+	python3-pip
 )
 source=("$url/archive/v$pkgver.tar.gz")
 md5sums=(SKIP)

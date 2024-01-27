@@ -1,0 +1,17 @@
+pkgname=python3-spidev
+pkgver=3.6
+pkgrel=3
+pkgdesc="python3 bindings for Linux SPI devices"
+url="https://github.com/doceme/py-spidev"
+license=(GPL)
+arch=(any)
+depends=(python3.11)
+makedepends=(gcc python3-distribute)
+source=("https://pypi.python3.org/packages/source/s/spidev/spidev-$pkgver.tar.gz")
+md5sums=(83a73279d6e823a9030c4315577bfae3)
+
+
+package() {
+	cd "$srcdir/spidev-$pkgver"
+	python3 setup.py install --prefix=/usr --root="$pkgdir"
+}

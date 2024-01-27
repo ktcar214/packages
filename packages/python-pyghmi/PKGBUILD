@@ -1,4 +1,4 @@
-pkgname=python-pyghmi
+pkgname=python3-pyghmi
 pkgver=1.5.63
 pkgrel=1
 pkgdesc="A Pure python IPMI library"
@@ -6,13 +6,13 @@ url="https://opendev.org/x/pyghmi"
 license=("Apache 2.0")
 arch=(any)
 depends=(
-	"python>=3.11"
-	"python<3.12"
-	python-cryptography
-	python-dateutil
-	python-six
+	"python3>=3.11"
+	"python3<3.12"
+	python3-cryptography
+	python3-dateutil
+	python3-six
 )
-makedepends=(python-distribute)
+makedepends=(python3-distribute)
 source=(${pkgname}::"git+https://opendev.org/x/pyghmi#commit=${pkgver}")
 md5sums=(SKIP)
 
@@ -20,5 +20,5 @@ md5sums=(SKIP)
 package() {
 	cd "$srcdir/$pkgname"
 	./makesetup
-	python setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+	python3 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
 }

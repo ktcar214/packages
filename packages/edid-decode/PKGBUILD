@@ -4,8 +4,8 @@ pkgver=20231014
 pkgrel=1
 pkgdesc="EDID decoder and conformance tester"
 license=(MIT)
-arch=(i686 x86_64 armv6h armv7h aarch64)
-depends=(gcc-libs)
+arch=(i686 x86_64 armv6h armv7h arm64)
+depends=(libc6)
 makedepends=(gcc make git)
 source=("git+https://git.linuxtv.org/edid-decode.git#commit=$_commit")
 md5sums=(SKIP)

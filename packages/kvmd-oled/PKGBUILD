@@ -6,12 +6,12 @@ url="https://github.com/pikvm/packages"
 license=(GPL)
 arch=(any)
 depends=(
-	python-luma-oled
-	python-netifaces
-	python-psutil
-	python-pyusb
-	python-pillow
-	ttf-proggy-clean
+	python3-luma-oled
+	python3-netifaces
+	python3-psutil
+	python3-pyusb
+	python3-pillow
+	fonts-froggy
 )
 source=(
 	$pkgname.service

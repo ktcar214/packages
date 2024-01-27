@@ -1,5 +1,5 @@
 _commit=dd34c5a29b46d83b0bea841e85fd72b79f315b87
-pkgname=python-pyrad
+pkgname=python3-pyrad
 pkgver=2.4.1
 pkgrel=4
 pkgdesc="Python RADIUS Implementation"
@@ -9,15 +9,15 @@ arch=(any)
 depends=(
 	"python>=3.11"
 	"python<3.12"
-	python-netaddr
-	python-six
+	python3-netaddr
+	python3-six
 )
-makedepends=(python-distribute)
+makedepends=(python3-distribute)
 source=("https://github.com/pyradius/pyrad/archive/${_commit}.tar.gz")
 md5sums=(SKIP)
 
 
 package() {
 	cd "$srcdir/pyrad-$_commit"
-	python setup.py install --prefix=/usr --root="$pkgdir"
+	python3 setup.py install --prefix=/usr --root="$pkgdir"
 }

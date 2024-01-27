@@ -37,7 +37,7 @@ pikvm_enable_startx() {
 post_install () {
   disable_cma
 
-  # coming from linux-aarch64 also needs a padded zero in the path to /boot
+  # coming from linux-arm64 also needs a padded zero in the path to /boot
   correct_fstab
 
   pikvm_move_pacsave

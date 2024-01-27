@@ -4,7 +4,7 @@ pkgrel=1
 pkgdesc="PiKVM - A small fan controller daemon"
 url="https://github.com/pikvm/kvmd-fan"
 license=(GPL)
-arch=(armv6h armv7h aarch64)
+arch=(armv6h armv7h arm64)
 depends=(
 	iniparser
 	libmicrohttpd

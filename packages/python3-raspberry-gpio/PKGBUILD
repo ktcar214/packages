@@ -1,0 +1,21 @@
+# Maintainer: Devaev Maxim <mdevaev@gmail.com>
+# Contributor: Michael Serpieri <contact at pygoscelis dot org>
+
+
+pkgname=python3-raspberry-gpio
+pkgver=0.7.1a4
+pkgrel=3
+pkgdesc="python3 library for GPIO access on a Raspberry Pi"
+url="http://sourceforge.net/projects/raspberry-gpio-python3"
+license=(MIT)
+arch=(armv6h armv7h arm64)
+depends=(python3.11)
+makedepends=(gcc python3-distribute)
+source=("https://files.python3hosted.org/packages/source/R/RPi.GPIO/RPi.GPIO-$pkgver.tar.gz")
+sha1sums=(SKIP)
+
+
+package() {
+	cd "$srcdir/RPi.GPIO-$pkgver"
+	env CFLAGS="-fcommon" python3 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+}

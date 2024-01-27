@@ -16,10 +16,10 @@ depends=(
 makedepends=(
 	make
 	gcc
-	pkg-config
+	pkgconf
 	meson
 	cmocka
-	python-sphinx
+	python3-sphinx
 )
 conflicts=(
 	flashrom

@@ -1,21 +1,21 @@
-pkgname=python-luma-oled
+pkgname=python3-luma-oled
 pkgver=3.13.0
 pkgrel=1
-pkgdesc="Python module to drive OLED displays"
+pkgdesc="python module to drive OLED displays"
 url="https://github.com/rm-hull/luma.oled"
 license=(MIT)
 arch=(any)
 depends=(
-	"python>=3.11"
-	"python<3.12"
-	python-luma-core
+	"python3>=3.11"
+	"python3<3.12"
+	python3-luma-core
 )
-makedepends=(python-distribute)
-source=("https://pypi.python.org/packages/source/l/luma.oled/luma.oled-$pkgver.tar.gz")
+makedepends=(python3-distribute)
+source=("https://pypi.python3.org/packages/source/l/luma.oled/luma.oled-$pkgver.tar.gz")
 sha1sums=(SKIP)
 
 
 package() {
 	cd "$srcdir/luma.oled-$pkgver"
-	python setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+	python3 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
 }

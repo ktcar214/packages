@@ -9,16 +9,16 @@ arch=(i686 x86_64 armv6h armv7h)
 depends=(
 	glib2
 	jansson
-	libconfig
-	libwebsockets
-	libnice
-	libsrtp
+	libconfig++9v5
+	libwebsockets-dev
+	libnice10
+	libsrtp2-1
 	openssl
 )
 makedepends=(
 	cmake
 	gcc
-	pkg-config
+	pkgconf
 	gengetopt
 	autoconf
 )

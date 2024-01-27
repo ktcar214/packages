@@ -15,7 +15,7 @@ pkgver=6.1.61
 pkgrel=1
 pkgdesc='Linux'
 url="http://www.kernel.org/"
-arch=(armv7h aarch64)
+arch=(armv7h arm64)
 license=(GPL2)
 makedepends=(
   bc
@@ -24,7 +24,7 @@ makedepends=(
 )
 options=('!strip')
 source_armv7h=('config' 'config.txt')
-source_aarch64=('config8' 'config8.txt')
+source_arm64=('config8' 'config8.txt')
 source=("linux-$pkgver-${_commit:0:10}.tar.gz::https://github.com/raspberrypi/linux/archive/${_commit}.tar.gz"
         cmdline.txt
         0001-Make-proc-cpuinfo-consistent-on-arm64-and-arm.patch
@@ -39,7 +39,7 @@ md5sums=(SKIP SKIP SKIP
          SKIP SKIP SKIP
          SKIP SKIP SKIP)
 md5sums_armv7h=(SKIP SKIP)
-md5sums_aarch64=(SKIP SKIP)
+md5sums_arm64=(SKIP SKIP)
 
 # setup vars
 if [[ $CARCH == "armv7h" ]]; then

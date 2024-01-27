@@ -8,7 +8,7 @@ pkgrel=3
 pkgdesc="Lightweight and fast MJPEG-HTTP streamer"
 url="https://github.com/pikvm/ustreamer"
 license=(GPL)
-arch=(i686 x86_64 armv6h armv7h aarch64)
+arch=(i686 x86_64 armv6h armv7h arm64)
 depends=(janus-gateway-pikvm alsa-lib opus speexdsp libjpeg libevent libbsd libgpiod systemd)
 makedepends=(gcc make systemd)
 source=(${pkgname}::"git+https://github.com/pikvm/ustreamer#commit=v${pkgver}")
@@ -19,7 +19,7 @@ _options="WITH_GPIO=1 WITH_SYSTEMD=1"
 if [ -e /usr/bin/python3 ]; then
 	_options="$_options WITH_PYTHON=1"
 	depends+=(python)
-	makedepends+=(python-setuptools)
+	makedepends+=(python3-setuptools)
 fi
 if [ -e /usr/include/janus/plugins/plugin.h ];then
 	depends+=(janus-gateway-pikvm alsa-lib opus)
