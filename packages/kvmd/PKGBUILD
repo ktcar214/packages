@@ -30,8 +30,8 @@ depends=(
 	python3-pyotp
 	python3-qrcode
 	python3-periphery
-	python3-pyserial
-	python3-pyserial-asyncio
+	python3-serial
+	python3-serial-asyncio
 	python3-spidev
 	python3-setproctitle
 	python3-psutil
@@ -44,7 +44,7 @@ depends=(
 	python3-pam
 	python3-pillow
 	python3-xlib
-	libxkbcommon
+	libxkbcommon0
 	python3-hidapi
 	python3-six
 	python3-pyrad
@@ -103,19 +103,20 @@ conflicts=(
 makedepends=(
 	python3-setuptools
 	python3-pip
+	libxkbcommon-dev
 )
 source=("$url/archive/v$pkgver.tar.gz")
 md5sums=(SKIP)
 backup=(
-	etc/kvmd/{override,logging,auth,meta}.yaml
-	etc/kvmd/{ht,ipmi,vnc}passwd
-	etc/kvmd/totp.secret
-	etc/kvmd/nginx/{kvmd.ctx-{http,server},certbot.ctx-server}.conf
-	etc/kvmd/nginx/listen-http{,s}.conf
-	etc/kvmd/nginx/loc-{login,nocache,proxy,websocket,nobuffering,bigpost}.conf
-	etc/kvmd/nginx/{mime-types,ssl,redirect-to-https,nginx}.conf
-	etc/kvmd/janus/janus{,.plugin.ustreamer,.transport.websockets}.jcfg
-	etc/kvmd/web.css
+	/etc/kvmd/{override,logging,auth,meta}.yaml
+	/etc/kvmd/{ht,ipmi,vnc}passwd
+	/etc/kvmd/totp.secret
+	/etc/kvmd/nginx/{kvmd.ctx-{http,server},certbot.ctx-server}.conf
+	/etc/kvmd/nginx/listen-http{,s}.conf
+	/etc/kvmd/nginx/loc-{login,nocache,proxy,websocket,nobuffering,bigpost}.conf
+	/etc/kvmd/nginx/{mime-types,ssl,redirect-to-https,nginx}.conf
+	/etc/kvmd/janus/janus{,.plugin.ustreamer,.transport.websockets}.jcfg
+	/etc/kvmd/web.css
 )
 
 
@@ -177,9 +178,9 @@ for _variant in "${_variants[@]}"; do
 		depends=(kvmd=$pkgver-$pkgrel \"linux-rpi-pikvm>=5.15.68-3\")
 
 		backup=(
-			etc/sysctl.d/99-kvmd.conf
-			etc/udev/rules.d/99-kvmd.rules
-			etc/kvmd/main.yaml
+			/etc/sysctl.d/99-kvmd.conf
+			/etc/udev/rules.d/99-kvmd.rules
+			/etc/kvmd/main.yaml
 		)
 
 		if [[ $_base == v0 ]]; then
@@ -196,24 +197,24 @@ for _variant in "${_variants[@]}"; do
 		install -DTm444 configs/kvmd/main/$_platform-$_board.yaml \"\$pkgdir/etc/kvmd/main.yaml\"
 
 		if [ -f configs/kvmd/fan/$_platform.ini ]; then
-			backup=(\"\${backup[@]}\" etc/kvmd/fan.ini)
+			backup=(\"\${backup[@]}\" /etc/kvmd/fan.ini)
 			depends=(\"\${depends[@]}\" \"kvmd-fan>=0.18\")
 			install -DTm444 configs/kvmd/fan/$_platform.ini \"\$pkgdir/etc/kvmd/fan.ini\"
 		fi
 
 		if [ -f configs/os/modules-load/$_platform.conf ]; then
-			backup=(\"\${backup[@]}\" etc/modules-load.d/kvmd.conf)
+			backup=(\"\${backup[@]}\" /etc/modules-load.d/kvmd.conf)
 			install -DTm644 configs/os/modules-load/$_platform.conf \"\$pkgdir/etc/modules-load.d/kvmd.conf\"
 		fi
 
 		if [ -f configs/os/sudoers/$_platform ]; then
-			backup=(\"\${backup[@]}\" etc/sudoers.d/99_kvmd)
+			backup=(\"\${backup[@]}\" /etc/sudoers.d/99_kvmd)
 			install -DTm440 configs/os/sudoers/$_platform \"\$pkgdir/etc/sudoers.d/99_kvmd\"
 			chmod 750 \"\$pkgdir/etc/sudoers.d\"
 		fi
 
 		if [[ $_platform =~ ^.*-hdmi$ ]]; then
-			backup=(\"\${backup[@]}\" etc/kvmd/tc358743-edid.hex)
+			backup=(\"\${backup[@]}\" /etc/kvmd/tc358743-edid.hex)
 			install -DTm444 configs/kvmd/edid/$_platform.hex \"\$pkgdir/etc/kvmd/tc358743-edid.hex\"
 		fi
 

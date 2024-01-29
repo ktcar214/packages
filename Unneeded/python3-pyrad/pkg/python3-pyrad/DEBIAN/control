@@ -1,0 +1,7 @@
+Package: python3-pyrad
+Version: 2.4.1-4
+Description: Python RADIUS Implementation
+Architecture: arm64
+License: BSD
+Homepage: https://github.com/pyradius/pyrad
+Depends: python3.11, python3-netaddr, python3-six

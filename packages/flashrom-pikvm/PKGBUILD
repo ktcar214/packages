@@ -7,10 +7,10 @@ pkgrel=2
 pkgdesc="A utility for identifying, reading, writing, verifying and erasing flash chips"
 url="https://github.com/flashrom/flashrom"
 license=(GPL)
-arch=(i686 x86_64 armv6h armv7h)
+arch=(i686 x86_64 armv6h armv7h arm64)
 depends=(
-	libusb
-	libftdi
+	libusb-1.0-0
+	libftdi1-2
 	pciutils
 )
 makedepends=(
@@ -18,7 +18,7 @@ makedepends=(
 	gcc
 	pkgconf
 	meson
-	cmocka
+	libcmocka0
 	python3-sphinx
 )
 conflicts=(
@@ -46,7 +46,7 @@ build() {
 	cd "flashrom-$_commit"
 #	patch -Np1 -i ../vl805.patch
 #	make PREFIX=/usr $MAKEFLAGS
-	arch-meson -Dtests=disabled build
+	meson -Dtests=disabled build
 	ninja -v -C build
 }
 

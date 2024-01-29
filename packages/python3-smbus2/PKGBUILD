@@ -6,7 +6,7 @@ url="https://github.com/kplindegaard/smbus2"
 license=(MIT)
 arch=(any)
 depends=(python3.11)
-makedepends=(python3-distribute)
+makedepends=(python3-distributed)
 source=("https://github.com/kplindegaard/smbus2/archive/${pkgver}.tar.gz")
 md5sums=(SKIP)
 

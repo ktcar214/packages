@@ -10,7 +10,7 @@ url="http://sourceforge.net/projects/raspberry-gpio-python3"
 license=(MIT)
 arch=(armv6h armv7h arm64)
 depends=(python3.11)
-makedepends=(gcc python3-distribute)
+makedepends=(gcc python3-distributed)
 source=("https://files.python3hosted.org/packages/source/R/RPi.GPIO/RPi.GPIO-$pkgver.tar.gz")
 sha1sums=(SKIP)
 

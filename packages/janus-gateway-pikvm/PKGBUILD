@@ -5,22 +5,41 @@ pkgrel=1
 pkgdesc="An open source, general purpose, WebRTC server (PiKVM build)"
 url='https://janus.conf.meetecho.com'
 license=(GPL3)
-arch=(i686 x86_64 armv6h armv7h)
+arch=(i686 x86_64 armv6h armv7h arm64)
 depends=(
-	glib2
-	jansson
+	"libglib2.0-0>=2.34"
+	libjansson4
 	libconfig++9v5
 	libwebsockets-dev
 	libnice10
 	libsrtp2-1
 	openssl
+	zlib1g
+	libjansson4
+	libssl1.1
+	libcrypto++6
+	libnice10
+	libconfig++9v5
+	"libglib2.0-0>=2.34"
+	libsrtp2-1
 )
 makedepends=(
+	zlib1g-dev
 	cmake
 	gcc
 	pkgconf
 	gengetopt
 	autoconf
+	libtool
+	libssl-dev
+	libsofia-sip-ua-dev
+	libglib2.0-dev
+	libmicrohttpd-dev
+	libjansson-dev
+	libopus-dev
+	libssl-dev 
+	libnice-dev
+	libsrtp2-dev
 )
 conflicts=(
 	janus-gateway

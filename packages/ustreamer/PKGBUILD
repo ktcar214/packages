@@ -9,21 +9,21 @@ pkgdesc="Lightweight and fast MJPEG-HTTP streamer"
 url="https://github.com/pikvm/ustreamer"
 license=(GPL)
 arch=(i686 x86_64 armv6h armv7h arm64)
-depends=(janus-gateway-pikvm alsa-lib opus speexdsp libjpeg libevent libbsd libgpiod systemd)
-makedepends=(gcc make systemd)
-source=(${pkgname}::"git+https://github.com/pikvm/ustreamer#commit=v${pkgver}")
+depends=(janus-gateway-pikvm libasound2 libopus0 libspeexdsp1 libjpeg62 libevent-2.1-7 libbsd0 libgpiod2 libsystemd0)
+makedepends=(gcc make systemd libjpeg-dev libasound2-dev libopus-dev libspeexdsp-dev libevent-dev libbsd-dev libgpiod-dev libsystemd-dev)
+source=(${pkgname}::"git+https://github.com/pikvm/ustreamer#tag=v${pkgver}")
 md5sums=(SKIP)
 
 
 _options="WITH_GPIO=1 WITH_SYSTEMD=1"
 if [ -e /usr/bin/python3 ]; then
 	_options="$_options WITH_PYTHON=1"
-	depends+=(python)
+	depends+=(python3.11)
 	makedepends+=(python3-setuptools)
 fi
 if [ -e /usr/include/janus/plugins/plugin.h ];then
-	depends+=(janus-gateway-pikvm alsa-lib opus)
-	makedepends+=(janus-gateway-pikvm alsa-lib opus)
+	depends+=(janus-gateway-pikvm libasound2 libopus0)
+	makedepends+=(janus-gateway-pikvm libasound2-dev libopus-dev)
 	_options="$_options WITH_JANUS=1"
 fi
 

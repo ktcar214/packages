@@ -1,0 +1,13 @@
+built:
+	edid-decode
+	flashrom-pikvm
+	python3-spidev
+	python3-smbus2
+	raspberrypi-io-access
+	tailscale-pikvm
+	janus=geteway-pikvm
+	ustreamer
+
+dep. resolved:
+	python3-luma-core
+	python3-luma-oled
